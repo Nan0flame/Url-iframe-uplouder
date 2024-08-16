@@ -1,0 +1,96 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool math games and shit idk ¯\_(ツ)_/¯</title>
+    <style>
+        body {
+            background-color: rgb(38, 38, 38);
+        }
+
+        #target {
+            width: 300px;
+            height: 200px;
+            overflow-y: auto;
+            overflow-x: auto;
+            resize: both;
+            position: relative;
+            z-index: 2;
+        }
+
+        iframe {
+            width: 100%;
+            height: 80%;
+            bordercolor: red;
+            border: outset;
+        }
+
+        .warning-text {
+            color: red;
+        }
+
+        .Credits {
+            color: White;
+        }
+
+        .Updates {
+            color: Gray;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="gameFrame" src="https://www.coolmathgames.com/sites/default/files/public_games/49389/" title="Shit game"></iframe>
+
+    <form>
+        <label for="Site">Site you want to go to:</label>
+        <input type="text" id="Site" name="Site">
+    </form>
+
+    <button onclick="myFunction()">Go to site</button>
+
+    <p class="warning-text"><b>Beware sometimes it won't work due to websites not liking this type of code</b></p>
+
+    <p id="demo"></p>
+
+    <hr>
+
+    <script>
+        function myFunction() {
+            var siteUrl = document.getElementById("Site").value;
+            // Ensure the URL is properly formatted with "http://" or "https://"
+            if (!siteUrl.startsWith('http://') && !siteUrl.startsWith('https://')) {
+                siteUrl = 'http://' + siteUrl;
+            }
+            document.getElementById("gameFrame").src = siteUrl;
+        }
+        
+        function getURLAfterDelay() {
+            setTimeout(function() {
+                var url = window.location.href;
+                document.getElementById('urlDisplay').innerHTML = 'The Current URL is: <a href="' + url + '" onclick="window.location.href=\'' + url + '\'; return false;">' + url + '</a>';
+            }, 100); // Delay of 100 milliseconds (0.1 seconds)
+        }
+
+        // Call the function when the page is loaded
+        window.onload = getURLAfterDelay;
+    </script>
+
+    <script type="application/javascript">
+        function getIP(json) {
+            document.write("My Client IP address is: " + json.ip);
+        }
+    </script>
+
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+
+    <br><br><br><br>
+    <p class="Updates"><b>This website will be regularly updated on a weekly basis so yeah hope y'all like this</b></p>
+    <br><br><br><br><br>
+
+    <p id="urlDisplay"></p>
+    <p class="Credits"><b>Made by George Washington (you won't get to know my full name losers :])<br>Thanks to Dylan for the idea :)</b></p>
+</body>
+</html>
+
+
